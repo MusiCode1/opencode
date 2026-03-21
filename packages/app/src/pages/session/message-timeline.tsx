@@ -604,7 +604,7 @@ export function MessageTimeline(props: {
 
     return (
       <Dialog title={language.t("session.delete.title")} fit>
-        <div class="flex flex-col gap-4 pl-6 pr-2.5 pb-3">
+        <div class="flex flex-col gap-4 ps-6 pe-2.5 pb-3">
           <div class="flex flex-col gap-1">
             <span class="text-14-regular text-text-strong">
               {language.t("session.delete.confirm", { name: name() })}
@@ -717,7 +717,7 @@ export function MessageTimeline(props: {
                   relative: true,
                   "w-full": true,
                   "pb-4": true,
-                  "pl-2 pr-3 md:pl-4 md:pr-3": true,
+                  "ps-2 pe-3 md:ps-4 md:pe-3": true,
                   "md:max-w-200 md:mx-auto 2xl:max-w-[1000px]": props.centered,
                 }}
               >
@@ -735,7 +735,7 @@ export function MessageTimeline(props: {
                   </div>
                 </Show>
                 <div class="h-12 w-full flex items-center justify-between gap-2">
-                  <div class="flex items-center gap-1 min-w-0 flex-1 pr-3">
+                  <div class="flex items-center gap-1 min-w-0 flex-1 pe-3">
                     <div class="flex items-center min-w-0 grow-1">
                       <Show when={parentID()}>
                         <button
@@ -1051,7 +1051,7 @@ export function MessageTimeline(props: {
                     >
                       <Show when={commentCount() > 0}>
                         <div class="w-full px-4 md:px-5 pb-2">
-                          <div class="ml-auto max-w-[82%] overflow-x-auto no-scrollbar">
+                          <div class="ms-auto max-w-[82%] overflow-x-auto no-scrollbar">
                             <div class="flex w-max min-w-full justify-end gap-2">
                               <Index each={comments()}>
                                 {(commentAccessor: () => MessageComment) => {

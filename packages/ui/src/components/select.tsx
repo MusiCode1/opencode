@@ -97,12 +97,13 @@ export function Select<T>(props: SelectProps<T> & Omit<ButtonProps, "children">)
       optionGroupChildren="options"
       placeholder={local.placeholder}
       sectionComponent={(local) => (
-        <Kobalte.Section data-slot="select-section">{local.section.rawValue.category}</Kobalte.Section>
+        <Kobalte.Section data-slot="select-section" dir="auto">{local.section.rawValue.category}</Kobalte.Section>
       )}
       itemComponent={(itemProps) => (
         <Kobalte.Item
           {...itemProps}
           data-slot="select-select-item"
+          dir="auto"
           classList={{
             ...local.classList,
             [local.class ?? ""]: !!local.class,
@@ -111,7 +112,7 @@ export function Select<T>(props: SelectProps<T> & Omit<ButtonProps, "children">)
           onPointerMove={() => move(itemProps.item.rawValue)}
           onFocus={() => move(itemProps.item.rawValue)}
         >
-          <Kobalte.ItemLabel data-slot="select-select-item-label">
+          <Kobalte.ItemLabel dir="auto" data-slot="select-select-item-label">
             {local.children
               ? local.children(itemProps.item.rawValue)
               : local.label

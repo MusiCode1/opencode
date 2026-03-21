@@ -1106,7 +1106,7 @@ export function UserMessageDisplay(props: { message: UserMessage; parts: PartTyp
       <Show when={text()}>
         <>
           <div data-slot="user-message-body">
-            <div data-slot="user-message-text">
+            <div data-slot="user-message-text" dir="auto">
               <HighlightedText text={text()} references={inlineFiles()} agents={agents()} />
             </div>
           </div>
@@ -1476,7 +1476,7 @@ PART_MAPPING["text"] = function TextPartDisplay(props) {
   return (
     <Show when={text()}>
       <div data-component="text-part">
-        <div data-slot="text-part-body">
+        <div data-slot="text-part-body" dir="auto">
           <Show when={streaming()} fallback={<Markdown text={text()} cacheKey={part().id} streaming={false} />}>
             <PacedMarkdown text={text()} cacheKey={part().id} streaming={streaming()} />
           </Show>

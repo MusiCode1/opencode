@@ -124,6 +124,7 @@ function ensureCodeWrapper(block: HTMLPreElement, labels: CopyLabels) {
   if (!wrapped) {
     const wrapper = document.createElement("div")
     wrapper.setAttribute("data-component", "markdown-code")
+    wrapper.setAttribute("dir", "ltr")
     parent.replaceChild(wrapper, block)
     wrapper.appendChild(block)
     wrapper.appendChild(createCopyButton(labels))
@@ -337,6 +338,7 @@ export function Markdown(
   return (
     <div
       data-component="markdown"
+      dir="auto"
       classList={{
         ...local.classList,
         [local.class ?? ""]: !!local.class,

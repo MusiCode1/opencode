@@ -204,7 +204,7 @@ export function Titlebar() {
         </Show>
         <div class="flex items-center gap-1 shrink-0">
           <TooltipKeybind
-            class={web() ? "hidden xl:flex shrink-0 ml-14" : "hidden xl:flex shrink-0 ml-2"}
+            class={web() ? "hidden xl:flex shrink-0 ms-14" : "hidden xl:flex shrink-0 ms-2"}
             placement="bottom"
             title={language.t("command.sidebar.toggle")}
             keybind={command.keybind("sidebar.toggle")}
@@ -222,7 +222,7 @@ export function Titlebar() {
           <div class="hidden xl:flex items-center shrink-0">
             <Show when={params.dir}>
               <div
-                class="flex items-center shrink-0 w-8 mr-1"
+                class="flex items-center shrink-0 w-8 me-1"
                 aria-hidden={layout.sidebar.opened() ? "true" : undefined}
               >
                 <div

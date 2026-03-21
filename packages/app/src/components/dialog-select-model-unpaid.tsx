@@ -74,7 +74,7 @@ export const DialogSelectModelUnpaid: Component<{ model?: ModelState }> = (props
           }}
         >
           {(i) => (
-            <div class="w-full flex items-center gap-x-2.5">
+            <div class="w-full flex items-center gap-x-2.5" dir="auto">
               <span>{i.name}</span>
               <Tag>{language.t("model.tag.free")}</Tag>
               <Show when={i.latest}>
