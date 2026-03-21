@@ -16,7 +16,7 @@
 
   [data-slot="session-review-container"] {
     flex: 1 1 auto;
-    padding-right: 0;
+    padding-inline-end: 0;
   }
 
   [data-slot="session-review-header"] {
@@ -136,7 +136,7 @@
     align-items: center;
     justify-content: center;
     padding: 2px;
-    margin-left: 8px;
+    margin-inline-start: 8px;
     border: none;
     background: transparent;
     color: var(--text-base);

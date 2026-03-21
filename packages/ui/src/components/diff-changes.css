@@ -12,7 +12,7 @@
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-large);
     letter-spacing: var(--letter-spacing-normal);
-    text-align: right;
+    text-align: end;
     color: var(--text-diff-add-base);
   }
 
@@ -24,7 +24,7 @@
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-large);
     letter-spacing: var(--letter-spacing-normal);
-    text-align: right;
+    text-align: end;
     color: var(--text-diff-delete-base);
   }
 }

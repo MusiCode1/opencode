@@ -124,7 +124,7 @@
     cursor: pointer;
     opacity: 0;
     transition: opacity 0.15s ease;
-    margin-left: 4px;
+    margin-inline-start: 4px;
   }
 
   [data-component="session-turn-diffs-group"]:hover [data-slot="session-turn-diffs-toggle"] {
@@ -133,6 +133,11 @@
 
   [data-component="session-turn-diffs-group"][data-show-all] [data-slot="session-turn-diffs-toggle"] {
     opacity: 1;
+  }
+
+  [data-slot="collapsible-arrow"] {
+    margin-inline-start: -6px;
+    transform: translateY(2px);
   }
 
   [data-slot="session-turn-diffs-more"] {
