@@ -125,7 +125,7 @@ export function SessionTodoDock(props: {
       <div ref={contentRef}>
         <div
           data-action="session-todo-toggle"
-          class="pl-3 pr-2 py-2 flex items-center gap-2 overflow-visible"
+          class="ps-3 pe-2 py-2 flex items-center gap-2 overflow-visible"
           role="button"
           tabIndex={0}
           onClick={toggle}
@@ -161,7 +161,7 @@ export function SessionTodoDock(props: {
           </span>
           <div
             data-slot="session-todo-preview"
-            class="ml-1 min-w-0 overflow-hidden"
+            class="ms-1 min-w-0 overflow-hidden"
             style={{
               flex: "1 1 auto",
               "max-width": "100%",
@@ -179,7 +179,7 @@ export function SessionTodoDock(props: {
               truncate
             />
           </div>
-          <div class="ml-auto">
+          <div class="ms-auto">
             <IconButton
               data-action="session-todo-toggle-button"
               data-collapsed={store.collapsed ? "true" : "false"}

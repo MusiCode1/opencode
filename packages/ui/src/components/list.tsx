@@ -234,7 +234,7 @@ export function List<T>(props: ListProps<T> & { ref?: (ref: ListRef) => void }) 
     })
 
     return (
-      <div data-slot="list-header" data-stuck={state.stuck} ref={(el) => setState("header", el)}>
+      <div data-slot="list-header" dir="auto" data-stuck={state.stuck} ref={(el) => setState("header", el)}>
         {props.groupHeader?.(groupProps.group) ?? groupProps.group.category}
       </div>
     )
@@ -251,7 +251,7 @@ export function List<T>(props: ListProps<T> & { ref?: (ref: ListRef) => void }) 
     return (
       <>
         <span>{i18n.t("ui.list.emptyWithFilter.prefix")}</span>
-        <span data-slot="list-filter">&quot;{query}&quot;</span>
+        <span dir="auto" data-slot="list-filter">&quot;{query}&quot;</span>
         <Show when={suffix}>
           <span>{suffix}</span>
         </Show>
@@ -283,6 +283,7 @@ export function List<T>(props: ListProps<T> & { ref?: (ref: ListRef) => void }) 
                 <Icon name="magnifying-glass" />
               </Show>
               <TextField
+                dir="auto"
                 autofocus={searchProps().autofocus}
                 variant="ghost"
                 data-slot="list-search-input"
@@ -338,6 +339,7 @@ export function List<T>(props: ListProps<T> & { ref?: (ref: ListRef) => void }) 
                         const node = (
                           <button
                             data-slot="list-item"
+                            dir="auto"
                             data-key={props.key(item)}
                             data-active={props.key(item) === active()}
                             data-selected={item === props.current}

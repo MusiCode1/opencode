@@ -144,6 +144,7 @@ function DropdownMenuItem(props: ParentProps<DropdownMenuItemProps>) {
     <Kobalte.Item
       {...rest}
       data-slot="dropdown-menu-item"
+      dir="auto"
       classList={{
         ...(local.classList ?? {}),
         [local.class ?? ""]: !!local.class,
@@ -159,6 +160,7 @@ function DropdownMenuItemLabel(props: ParentProps<DropdownMenuItemLabelProps>) {
   return (
     <Kobalte.ItemLabel
       {...rest}
+      dir="auto"
       data-slot="dropdown-menu-item-label"
       classList={{
         ...(local.classList ?? {}),
@@ -224,6 +226,7 @@ function DropdownMenuRadioItem(props: ParentProps<DropdownMenuRadioItemProps>) {
     <Kobalte.RadioItem
       {...rest}
       data-slot="dropdown-menu-radio-item"
+      dir="auto"
       classList={{
         ...(local.classList ?? {}),
         [local.class ?? ""]: !!local.class,

@@ -104,7 +104,7 @@ const SessionRow = (props: {
 }): JSX.Element => (
   <A
     href={`/${props.slug}/session/${props.session.id}`}
-    class={`flex items-center justify-between gap-3 min-w-0 text-left w-full focus:outline-none transition-[padding] ${props.mobile ? "pr-7" : ""} group-hover/session:pr-7 group-focus-within/session:pr-7 group-active/session:pr-7 ${props.dense ? "py-0.5" : "py-1"}`}
+    class={`flex items-center justify-between gap-3 min-w-0 text-start w-full focus:outline-none transition-[padding] ${props.mobile ? "pe-7" : ""} group-hover/session:pe-7 group-focus-within/session:pe-7 group-active/session:pe-7 ${props.dense ? "py-0.5" : "py-1"}`}
     onPointerDown={props.warmPress}
     onPointerEnter={props.warmHover}
     onPointerLeave={props.cancelHoverPrefetch}
@@ -135,7 +135,7 @@ const SessionRow = (props: {
           </Match>
         </Switch>
       </div>
-      <span class="text-14-regular text-text-strong grow-1 min-w-0 overflow-hidden text-ellipsis truncate">
+      <span dir="auto" class="text-14-regular text-text-strong grow-1 min-w-0 overflow-hidden text-ellipsis truncate">
         {props.session.title}
       </span>
     </div>
@@ -298,7 +298,7 @@ export const SessionItem = (props: SessionItemProps): JSX.Element => {
   return (
     <div
       data-session-id={props.session.id}
-      class="group/session relative w-full rounded-md cursor-default pl-2 pr-3 transition-colors
+      class="group/session relative w-full rounded-md cursor-default ps-2 pe-3 transition-colors
              hover:bg-surface-raised-base-hover [&:has(:focus-visible)]:bg-surface-raised-base-hover has-[[data-expanded]]:bg-surface-raised-base-hover has-[.active]:bg-surface-base-active"
     >
       <Show
@@ -375,7 +375,7 @@ export const NewSessionItem = (props: {
     <A
       href={`/${props.slug}/session`}
       end
-      class={`flex items-center justify-between gap-3 min-w-0 text-left w-full focus:outline-none ${props.dense ? "py-0.5" : "py-1"}`}
+      class={`flex items-center justify-between gap-3 min-w-0 text-start w-full focus:outline-none ${props.dense ? "py-0.5" : "py-1"}`}
       onClick={() => {
         props.setHoverSession(undefined)
         if (layout.sidebar.opened()) return
@@ -394,7 +394,7 @@ export const NewSessionItem = (props: {
   )
 
   return (
-    <div class="group/session relative w-full rounded-md cursor-default transition-colors pl-2 pr-3 hover:bg-surface-raised-base-hover [&:has(:focus-visible)]:bg-surface-raised-base-hover has-[.active]:bg-surface-base-active">
+    <div class="group/session relative w-full rounded-md cursor-default transition-colors ps-2 pe-3 hover:bg-surface-raised-base-hover [&:has(:focus-visible)]:bg-surface-raised-base-hover has-[.active]:bg-surface-base-active">
       <Show
         when={!tooltip()}
         fallback={

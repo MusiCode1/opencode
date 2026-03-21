@@ -641,6 +641,7 @@ function ViewerShell(props: {
 }) {
   return (
     <div
+      dir="ltr"
       data-component="file"
       data-mode={props.mode}
       style={styleVariables}
