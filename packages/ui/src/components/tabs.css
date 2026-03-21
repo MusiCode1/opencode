@@ -61,7 +61,7 @@
     flex-shrink: 0;
     max-width: 280px;
     border-bottom: 1px solid var(--border-weak-base);
-    border-right: 1px solid var(--border-weak-base);
+    border-inline-end: 1px solid var(--border-weak-base);
     background-color: var(--background-base);
 
     [data-slot="tabs-trigger"] {
@@ -111,10 +111,10 @@
       color: var(--text-strong);
     }
     &:has([data-slot="tabs-trigger-close-button"]) {
-      padding-right: 12px;
+      padding-inline-end: 12px;
 
       [data-slot="tabs-trigger"] {
-        padding-right: 0;
+        padding-inline-end: 0;
       }
     }
   }
@@ -140,8 +140,8 @@
 
     [data-slot="tabs-list"] {
       height: var(--tabs-bar-height);
-      padding-left: 12px;
-      padding-right: 0;
+      padding-inline-start: 12px;
+      padding-inline-end: 0;
       --tabs-review-gap: 16px;
       --tabs-review-fade: 16px;
       gap: var(--tabs-review-gap);
@@ -161,7 +161,7 @@
           position: absolute;
           top: 0;
           bottom: 0;
-          left: calc(var(--tabs-review-fade) * -1);
+          inset-inline-start: calc(var(--tabs-review-fade) * -1);
           width: var(--tabs-review-fade);
           pointer-events: none;
           background: linear-gradient(90deg, transparent, var(--background-stronger));
@@ -188,8 +188,7 @@
       &::after {
         content: "";
         position: absolute;
-        left: 0;
-        right: 0;
+        inset-inline: 0;
         bottom: calc((var(--tabs-compact-pill-height) - var(--tabs-bar-height)) / 2);
         height: 1px;
         background-color: var(--text-strong);
@@ -202,8 +201,8 @@
       }
 
       &[data-value="review"] {
-        padding-left: 8px;
-        padding-right: 8px;
+        padding-inline-start: 8px;
+        padding-inline-end: 8px;
       }
 
       [data-slot="tabs-trigger"] {
@@ -212,9 +211,9 @@
       }
 
       &:has([data-slot="tabs-trigger-close-button"]) {
-        padding-right: 5px;
+        padding-inline-end: 5px;
         [data-slot="tabs-trigger"] {
-          padding-right: 0 !important;
+          padding-inline-end: 0 !important;
         }
       }
 
@@ -269,8 +268,8 @@
 
   &[data-variant="alt"] {
     [data-slot="tabs-list"] {
-      padding-left: 24px;
-      padding-right: 24px;
+      padding-inline-start: 24px;
+      padding-inline-end: 24px;
       gap: 12px;
       border-bottom: 1px solid var(--border-weak-base);
       background-color: transparent;
@@ -332,9 +331,9 @@
       }
 
       &:has([data-slot="tabs-trigger-close-button"]) {
-        padding-right: 0;
+        padding-inline-end: 0;
         [data-slot="tabs-trigger"] {
-          padding-right: 0;
+          padding-inline-end: 0;
         }
       }
     }
@@ -444,7 +443,7 @@
       padding: 8px;
       gap: 4px;
       background-color: var(--background-base);
-      border-right: 1px solid var(--border-weak-base);
+      border-inline-end: 1px solid var(--border-weak-base);
 
       &::after {
         display: none;
@@ -526,7 +525,7 @@
         padding: 12px;
         gap: 0;
         background-color: var(--background-base);
-        border-right: 1px solid var(--border-weak-base);
+        border-inline-end: 1px solid var(--border-weak-base);
 
         &::after {
           display: none;
@@ -611,8 +610,7 @@
 [data-component="tabs-drag-preview"]::before {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
+  inset-inline: 0;
   top: calc((var(--tabs-bar-height, 48px) - var(--tabs-compact-pill-height, 24px)) / 2);
   height: var(--tabs-compact-pill-height, 24px);
   border: 1px solid var(--border-weak-base);
@@ -623,8 +621,7 @@
 [data-component="tabs-drag-preview"]::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
+  inset-inline: 0;
   bottom: 0;
   height: 1px;
   background-color: var(--text-strong);

@@ -18,6 +18,6 @@
 
 [data-dock-surface="tray"][data-dock-attach="top"] {
   margin-top: -0.875rem;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  border-start-start-radius: 0;
+  border-start-end-radius: 0;
 }
