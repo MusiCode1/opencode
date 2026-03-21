@@ -2131,7 +2131,7 @@ export default function Layout(props: ParentProps) {
                         transform: "translate3d(52px, 0, 0)",
                       }}
                     >
-                      <span class="text-12-regular text-text-base truncate select-text">
+                      <span dir="auto" class="text-12-regular text-text-base truncate select-text">
                         {worktree().replace(homedir(), "~")}
                       </span>
                     </Tooltip>

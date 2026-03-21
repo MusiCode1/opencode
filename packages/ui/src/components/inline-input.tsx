@@ -18,5 +18,5 @@ export function InlineInput(props: InlineInputProps) {
     return { ...local.style, width: local.width }
   }
 
-  return <input data-component="inline-input" class={local.class} style={style()} {...others} />
+  return <input data-component="inline-input" dir="auto" class={local.class} style={style()} {...others} />
 }

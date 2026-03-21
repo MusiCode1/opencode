@@ -47,7 +47,7 @@ function ToastIcon(props: { name: IconProps["name"] }) {
 }
 
 function ToastContent(props: ComponentProps<"div">) {
-  return <div data-slot="toast-content" {...props} />
+  return <div data-slot="toast-content" dir="auto" {...props} />
 }
 
 function ToastTitle(props: ToastTitleProps & ComponentProps<"div">) {
