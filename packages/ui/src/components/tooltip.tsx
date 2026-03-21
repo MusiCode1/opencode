@@ -133,6 +133,7 @@ export function Tooltip(props: TooltipProps) {
           <KobalteTooltip.Portal>
             <KobalteTooltip.Content
               data-component="tooltip"
+              dir="auto"
               data-placement={props.placement}
               data-force-open={local.forceOpen}
               class={local.contentClass}

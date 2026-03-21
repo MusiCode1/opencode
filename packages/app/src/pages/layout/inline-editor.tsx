@@ -72,7 +72,7 @@ export function createInlineEditorController() {
       <Show
         when={isEditing()}
         fallback={
-          <span
+          <span dir="auto"
             class={props.displayClass ?? props.class}
             onDblClick={handleDblClick}
             onPointerDown={stopPropagation}
