@@ -46,6 +46,60 @@
 
 <div dir="rtl">
 
+### ממשק ווב מרוחק
+
+ניתן להשתמש ב-UI של OpenCode ישירות מהדפדפן דרך [musicode1.github.io/opencode/](https://musicode1.github.io/opencode/) ולחבר אותו למופע OpenCode שרץ על המחשב שלכם.
+
+ממשק זה מתורגם במלואו לעברית ותומך ב-RTL באופן מלא — כולל כיווניות טקסט, פריסת רכיבים, אנימציות, וזיהוי אוטומטי של כיוון תוכן.
+
+#### הפעלת השרת
+
+</div>
+
+```bash
+opencode serve --port 4096 --cors https://musicode1.github.io
+```
+
+<div dir="rtl">
+
+> [!IMPORTANT]
+> יש לציין את ה-origin המדויק כולל הפרוטוקול (`https://`), בלי `/` בסוף.
+> Wildcard (`--cors *`) **לא נתמך**.
+
+ניתן להגדיר גם אימות:
+
+</div>
+
+```bash
+opencode serve --port 4096 --hostname 0.0.0.0 \
+  --cors https://musicode1.github.io \
+  --username admin --password my-secret
+```
+
+<div dir="rtl">
+
+#### חיבור מה-UI
+
+1. פתחו את [ממשק הווב](https://musicode1.github.io/opencode/)
+2. לחצו על כפתור השרת → "Add New Server"
+3. מלאו את השדות:
+   * **URL**: `http://localhost:4096` (או כתובת השרת המרוחק)
+   * **Name**: שם תצוגה (אופציונלי)
+   * **Username** / **Password**: אם הגדרתם אימות
+4. נקודה ירוקה = מחובר
+
+#### פתרון בעיות
+
+* **CORS נחסם** — ודאו שה-origin מדויק (ללא `/` בסוף, `https` ולא `http`)
+* **שרת לא נגיש מבחוץ** — הוסיפו `--hostname 0.0.0.0`
+* **Mixed Content** — אם ה-UI על HTTPS וה-API על HTTP, הדפדפן יחסום. השתמשו ב-reverse proxy עם HTTPS או בשניהם על HTTP
+
+</div>
+
+---
+
+<div dir="rtl">
+
 ### התקנה
 
 </div>
