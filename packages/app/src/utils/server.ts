@@ -14,8 +14,12 @@ export function createSdkForServer({
     }
   })()
 
+  const credentialsFetch: typeof fetch = (input, init) =>
+    fetch(input, { ...init, credentials: "include" })
+
   return createOpencodeClient({
     ...config,
+    fetch: credentialsFetch,
     headers: { ...config.headers, ...auth },
     baseUrl: server.url,
   })
