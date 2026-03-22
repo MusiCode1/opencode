@@ -1,0 +1,26 @@
+name: Build OpenCode Server (linux-x64)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - run: bun install
+
+      - run: bun run --cwd packages/opencode build -- --single
+        env:
+          MODELS_DEV_API_JSON: "{}"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: opencode-linux-x64
+          path: packages/opencode/dist/linux-x64/opencode
+          retention-days: 7
