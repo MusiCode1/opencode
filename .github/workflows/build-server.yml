@@ -20,5 +20,5 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: opencode-linux-x64
-          path: packages/opencode/dist/linux-x64/opencode
+          path: packages/opencode/dist/opencode-linux-x64/bin/opencode
           retention-days: 7
