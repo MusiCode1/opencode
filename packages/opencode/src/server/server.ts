@@ -499,12 +499,14 @@ export namespace Server {
       )
       .all("/*", async (c) => {
         const path = c.req.path
+        const appOrigin = process.env["OPENCODE_APP_URL"] || "https://app.opencode.ai"
+        const appHost = new URL(appOrigin).host
 
-        const response = await proxy(`https://app.opencode.ai${path}`, {
+        const response = await proxy(`${appOrigin}${path}`, {
           ...c.req,
           headers: {
             ...c.req.raw.headers,
-            host: "app.opencode.ai",
+            host: appHost,
           },
         })
         response.headers.set(
