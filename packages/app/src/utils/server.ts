@@ -14,21 +14,8 @@ export function createSdkForServer({
     }
   })()
 
-  const isCrossOrigin = (() => {
-    try {
-      return new URL(server.url).origin !== location.origin
-    } catch {
-      return false
-    }
-  })()
-
-  const wrappedFetch: typeof fetch | undefined = isCrossOrigin
-    ? (input, init) => fetch(input, { ...init, credentials: "include" })
-    : undefined
-
   return createOpencodeClient({
     ...config,
-    ...(wrappedFetch ? { fetch: wrappedFetch } : {}),
     headers: { ...config.headers, ...auth },
     baseUrl: server.url,
   })
