@@ -7,7 +7,7 @@
     </picture>
   </a>
 </p>
-<p align="center">The open source AI coding agent.</p>
+<p align="center" dir="rtl">סוכן קוד AI בקוד פתוח.</p>
 <p align="center">
   <a href="https://opencode.ai/discord"><img alt="Discord" src="https://img.shields.io/discord/1391832426048651334?style=flat-square&label=discord" /></a>
   <a href="https://www.npmjs.com/package/opencode-ai"><img alt="npm" src="https://img.shields.io/npm/v/opencode-ai?style=flat-square" /></a>
@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  <a href="README.md">English</a> |
+  <a href="README.en.md">English</a> |
   <a href="README.zh.md">简体中文</a> |
   <a href="README.zht.md">繁體中文</a> |
   <a href="README.ko.md">한국어</a> |
@@ -36,106 +36,176 @@
   <a href="README.uk.md">Українська</a> |
   <a href="README.bn.md">বাংলা</a> |
   <a href="README.gr.md">Ελληνικά</a> |
-  <a href="README.vi.md">Tiếng Việt</a>
+  <a href="README.vi.md">Tiếng Việt</a> |
+  <a href="README.md">עברית</a>
 </p>
 
 [![OpenCode Terminal UI](packages/web/src/assets/lander/screenshot.png)](https://opencode.ai)
 
 ---
 
-### Installation
+<div dir="rtl">
+
+### ממשק ווב מרוחק
+
+ניתן להשתמש ב-UI של OpenCode ישירות מהדפדפן דרך [musicode1.github.io/opencode/](https://musicode1.github.io/opencode/) ולחבר אותו למופע OpenCode שרץ על המחשב שלכם.
+
+ממשק זה מתורגם במלואו לעברית ותומך ב-RTL באופן מלא — כולל כיווניות טקסט, פריסת רכיבים, אנימציות, וזיהוי אוטומטי של כיוון תוכן.
+
+#### הפעלת השרת
+
+</div>
 
 ```bash
-# YOLO
-curl -fsSL https://opencode.ai/install | bash
-
-# Package managers
-npm i -g opencode-ai@latest        # or bun/pnpm/yarn
-scoop install opencode             # Windows
-choco install opencode             # Windows
-brew install anomalyco/tap/opencode # macOS and Linux (recommended, always up to date)
-brew install opencode              # macOS and Linux (official brew formula, updated less)
-sudo pacman -S opencode            # Arch Linux (Stable)
-paru -S opencode-bin               # Arch Linux (Latest from AUR)
-mise use -g opencode               # Any OS
-nix run nixpkgs#opencode           # or github:anomalyco/opencode for latest dev branch
+opencode serve --port 4096 --cors https://musicode1.github.io
 ```
 
+<div dir="rtl">
+
+> [!IMPORTANT]
+> יש לציין את ה-origin המדויק כולל הפרוטוקול (`https://`), בלי `/` בסוף.
+> Wildcard (`--cors *`) **לא נתמך**.
+
+ניתן להגדיר גם אימות:
+
+</div>
+
+```bash
+opencode serve --port 4096 --hostname 0.0.0.0 \
+  --cors https://musicode1.github.io \
+  --username admin --password my-secret
+```
+
+<div dir="rtl">
+
+#### חיבור מה-UI
+
+1. פתחו את [ממשק הווב](https://musicode1.github.io/opencode/)
+2. לחצו על כפתור השרת → "Add New Server"
+3. מלאו את השדות:
+   * **URL**: `http://localhost:4096` (או כתובת השרת המרוחק)
+   * **Name**: שם תצוגה (אופציונלי)
+   * **Username** / **Password**: אם הגדרתם אימות
+4. נקודה ירוקה = מחובר
+
+#### פתרון בעיות
+
+* **CORS נחסם** — ודאו שה-origin מדויק (ללא `/` בסוף, `https` ולא `http`)
+* **שרת לא נגיש מבחוץ** — הוסיפו `--hostname 0.0.0.0`
+* **Mixed Content** — אם ה-UI על HTTPS וה-API על HTTP, הדפדפן יחסום. השתמשו ב-reverse proxy עם HTTPS או בשניהם על HTTP
+
+</div>
+
+---
+
+<div dir="rtl">
+
+### התקנה
+
+</div>
+
+```bash
+# התקנה ישירה (YOLO)
+curl -fsSL https://opencode.ai/install | bash
+
+# מנהלי חבילות
+npm i -g opencode-ai@latest        # גם bun/pnpm/yarn
+scoop install opencode             # Windows
+choco install opencode             # Windows
+brew install anomalyco/tap/opencode # macOS ו-Linux (מומלץ, תמיד מעודכן)
+brew install opencode              # macOS ו-Linux (formula רשמי, עדכונים פחות תכופים)
+sudo pacman -S opencode            # Arch Linux (יציב)
+paru -S opencode-bin               # Arch Linux (עדכני מ-AUR)
+mise use -g opencode               # כל מערכת הפעלה
+nix run nixpkgs#opencode           # או github:anomalyco/opencode לענף הפיתוח האחרון
+```
+
+<div dir="rtl">
+
 > [!TIP]
-> Remove versions older than 0.1.x before installing.
+> הסירו גרסאות ישנות (לפני 0.1.x) לפני ההתקנה.
 
-### Desktop App (BETA)
+### אפליקציית דסקטופ (BETA)
 
-OpenCode is also available as a desktop application. Download directly from the [releases page](https://github.com/anomalyco/opencode/releases) or [opencode.ai/download](https://opencode.ai/download).
+OpenCode זמין גם כאפליקציית דסקטופ. ניתן להוריד מ-[עמוד ההפצות (releases page)](https://github.com/anomalyco/opencode/releases) או מ-[opencode.ai/download](https://opencode.ai/download).
 
-| Platform              | Download                              |
+| פלטפורמה             | קישור להורדה                          |
 | --------------------- | ------------------------------------- |
 | macOS (Apple Silicon) | `opencode-desktop-darwin-aarch64.dmg` |
 | macOS (Intel)         | `opencode-desktop-darwin-x64.dmg`     |
 | Windows               | `opencode-desktop-windows-x64.exe`    |
-| Linux                 | `.deb`, `.rpm`, or AppImage           |
+| Linux                 | `.deb`, `.rpm`, או AppImage           |
+
+</div>
 
 ```bash
-# macOS (Homebrew)
+# macOS (Homebrew Cask)
 brew install --cask opencode-desktop
 # Windows (Scoop)
 scoop bucket add extras; scoop install extras/opencode-desktop
 ```
 
-#### Installation Directory
+<div dir="rtl">
 
-The install script respects the following priority order for the installation path:
+#### תיקיית התקנה
 
-1. `$OPENCODE_INSTALL_DIR` - Custom installation directory
-2. `$XDG_BIN_DIR` - XDG Base Directory Specification compliant path
-3. `$HOME/bin` - Standard user binary directory (if it exists or can be created)
-4. `$HOME/.opencode/bin` - Default fallback
+סקריפט ההתקנה בוחר את נתיב ההתקנה לפי סדר העדיפויות הבא:
+
+1. `$OPENCODE_INSTALL_DIR` — תיקיית התקנה מותאמת אישית
+2. `$XDG_BIN_DIR` — נתיב לפי תקן XDG Base Directory
+3. `$HOME/bin` — תיקיית הרצה סטנדרטית (אם קיימת או ניתנת ליצירה)
+4. `$HOME/.opencode/bin` — נתיב גיבוי ברירת מחדל
+
+</div>
 
 ```bash
-# Examples
+# דוגמאות
 OPENCODE_INSTALL_DIR=/usr/local/bin curl -fsSL https://opencode.ai/install | bash
 XDG_BIN_DIR=$HOME/.local/bin curl -fsSL https://opencode.ai/install | bash
 ```
 
-### Agents
+<div dir="rtl">
 
-OpenCode includes two built-in agents you can switch between with the `Tab` key.
+### סוכנים (Agents)
 
-- **build** - Default, full-access agent for development work
-- **plan** - Read-only agent for analysis and code exploration
-  - Denies file edits by default
-  - Asks permission before running bash commands
-  - Ideal for exploring unfamiliar codebases or planning changes
+OpenCode כולל שני סוכנים מובנים. ניתן לעבור ביניהם באמצעות מקש `Tab`.
 
-Also included is a **general** subagent for complex searches and multistep tasks.
-This is used internally and can be invoked using `@general` in messages.
+* **build** — מצב ברירת המחדל, סוכן עם הרשאות מלאות, מתאים לפיתוח.
+* **plan** — מצב קריאה בלבד, מתאים לניתוח קוד וחקירה.
+  * לא ניתן לשנות קבצים כברירת מחדל.
+  * מבקש אישור לפני הרצת פקודות bash.
+  * מתאים מצוין לחקירת בסיסי קוד חדשים או תכנון שינויים.
 
-Learn more about [agents](https://opencode.ai/docs/agents).
+בנוסף, OpenCode כולל סוכן משנה בשם **general** לטיפול בחיפושים מורכבים ומשימות מרובות שלבים. סוכן זה מיועד לשימוש פנימי, אך ניתן להפעיל אותו ידנית על ידי הקלדת `@general` בהודעה.
 
-### Documentation
+למידע נוסף על [סוכנים](https://opencode.ai/docs/agents).
 
-For more info on how to configure OpenCode, [**head over to our docs**](https://opencode.ai/docs).
+### תיעוד מקוון
 
-### Contributing
+למידע מפורט על הגדרת OpenCode, עיינו ב-[**תיעוד הרשמי**](https://opencode.ai/docs).
 
-If you're interested in contributing to OpenCode, please read our [contributing docs](./CONTRIBUTING.md) before submitting a pull request.
+### תרומה לפרויקט
 
-### Building on OpenCode
+אם אתם מעוניינים לתרום לפיתוח OpenCode, אנא קראו את [מדריך התרומה (Contributing Docs)](./CONTRIBUTING.md) לפני שליחת Pull Request.
 
-If you are working on a project that's related to OpenCode and is using "opencode" as part of its name, for example "opencode-dashboard" or "opencode-mobile", please add a note to your README to clarify that it is not built by the OpenCode team and is not affiliated with us in any way.
+### פיתוח על בסיס OpenCode
 
-### FAQ
+אם אתם מפתחים פרויקט הקשור ל-OpenCode ומשתמשים בשם "opencode" (למשל "opencode-dashboard" או "opencode-mobile"), אנא ציינו ב-README שלכם שהפרויקט אינו מפותח על ידי צוות OpenCode ואינו קשור אלינו.
 
-#### How is this different from Claude Code?
+### שאלות נפוצות (FAQ)
 
-It's very similar to Claude Code in terms of capability. Here are the key differences:
+#### מה ההבדל בין זה ל-Claude Code?
 
-- 100% open source
-- Not coupled to any provider. Although we recommend the models we provide through [OpenCode Zen](https://opencode.ai/zen), OpenCode can be used with Claude, OpenAI, Google, or even local models. As models evolve, the gaps between them will close and pricing will drop, so being provider-agnostic is important.
-- Out-of-the-box LSP support
-- A focus on TUI. OpenCode is built by neovim users and the creators of [terminal.shop](https://terminal.shop); we are going to push the limits of what's possible in the terminal.
-- A client/server architecture. This, for example, can allow OpenCode to run on your computer while you drive it remotely from a mobile app, meaning that the TUI frontend is just one of the possible clients.
+מבחינה פונקציונלית, דומה מאוד ל-Claude Code. הנה ההבדלים העיקריים:
+
+* קוד פתוח ב-100%.
+* לא תלוי בספק מסוים. אנחנו ממליצים על המודלים שזמינים דרך [OpenCode Zen](https://opencode.ai/zen), אך OpenCode עובד גם עם Claude, OpenAI, Google ואפילו מודלים מקומיים. ככל שהמודלים מתפתחים, הפערים ביניהם מצטמצמים והמחירים יורדים — לכן אי-תלות בספק היא קריטית.
+* תמיכה מובנית ב-LSP (Language Server Protocol).
+* דגש על ממשק טרמינל (TUI). OpenCode נבנה על ידי חובבי Neovim ויוצרי [terminal.shop](https://terminal.shop). אנחנו נמשיך לדחוף את גבולות ממשק הטרמינל.
+* ארכיטקטורת לקוח/שרת (Client/Server). מאפשרת ל-OpenCode לרוץ על המחשב שלכם ולשלוט בו מרחוק ממכשיר נייד. המשמעות היא שממשק ה-TUI הוא רק אחד מלקוחות אפשריים רבים.
 
 ---
 
-**Join our community** [Discord](https://discord.gg/opencode) | [X.com](https://x.com/opencode)
+**הצטרפו לקהילה שלנו** [Discord](https://opencode.ai/discord) | [X.com](https://x.com/opencode)
+
+</div>
