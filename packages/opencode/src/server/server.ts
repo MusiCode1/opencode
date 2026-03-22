@@ -102,6 +102,7 @@ export namespace Server {
       })
       .use(
         cors({
+          credentials: true,
           origin(input) {
             if (!input) return
 
