@@ -641,10 +641,9 @@
 }
 
 [data-component="context-tool-group-list"] {
-  padding-top: 0;
-  padding-right: 0;
-  padding-bottom: 0;
-  padding-left: 12px;
+  padding-block: 0;
+  padding-inline-end: 0;
+  padding-inline-start: 12px;
   display: flex;
   flex-direction: column;
   gap: 4px;

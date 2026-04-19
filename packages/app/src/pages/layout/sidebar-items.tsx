@@ -130,10 +130,6 @@ const SessionRow = (props: {
         </div>
       </Show>
       <span dir="auto" class="text-14-regular text-text-strong min-w-0 flex-1 truncate">{title()}</span>
-          </Match>
-        </Switch>
-      </div>
-
     </A>
   )
 }
